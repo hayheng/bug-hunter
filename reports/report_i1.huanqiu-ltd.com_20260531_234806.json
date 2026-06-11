@@ -1,0 +1,238 @@
+{
+  "target": "i1.huanqiu-ltd.com",
+  "scan_time": "2026-05-31T23:48:06.729835",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 16,
+    "severity_distribution": {
+      "Critical": 1,
+      "High": 3,
+      "Medium": 9,
+      "Low": 3,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "i1.huanqiu-ltd.com"
+  ],
+  "alive_targets": [
+    {
+      "url": "https://i1.huanqiu-ltd.com",
+      "target": "i1.huanqiu-ltd.com"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "敏感文件泄露",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com/login",
+      "description": "发现敏感文件: /login",
+      "evidence": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, max",
+      "remediation": "删除或限制访问敏感文件",
+      "verified": true,
+      "verify_method": "确认文件存在且包含敏感内容",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 110
+    },
+    {
+      "type": "CORS配置错误",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "CORS配置允许所有域名访问",
+      "evidence": "Access-Control-Allow-Origin: *",
+      "remediation": "限制 CORS 允许的域名",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 115
+    },
+    {
+      "type": "Clickjacking",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "页面缺少 Clickjacking 防护",
+      "evidence": "未设置 X-Frame-Options 或 CSP frame-ancestors",
+      "remediation": "添加 X-Frame-Options: DENY 或 CSP frame-ancestors 指令",
+      "verified": true,
+      "verify_method": "确认缺少X-Frame-Options和CSP frame-ancestors",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 110
+    },
+    {
+      "type": "未授权访问",
+      "severity": "High",
+      "url": "https://i1.huanqiu-ltd.com/dashboard",
+      "description": "敏感路径可未授权访问: /dashboard",
+      "evidence": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>404 not found</title>\n    <link type=\"text/css\" rel=\"stylesheet\" href=\"/dist/style.css\">\n    <script src=\"//cdn.bootcss.co",
+      "remediation": "添加访问控制，要求认证",
+      "poc": "",
+      "cve": "",
+      "verified": true,
+      "verify_method": "确认可未授权访问",
+      "exploitable": "unknown",
+      "exploit_confidence": "medium",
+      "priority_score": 150
+    },
+    {
+      "type": "安全头缺失",
+      "severity": "Low",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "缺少安全响应头: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Referrer-Policy",
+      "evidence": "缺失: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Referrer-Policy",
+      "remediation": "添加安全响应头",
+      "poc": "",
+      "cve": "",
+      "verified": true,
+      "verify_method": "确认缺少安全头: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Referrer-Policy",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 90
+    },
+    {
+      "type": "HTTP请求走私",
+      "severity": "High",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "可能存在HTTP请求走私漏洞",
+      "evidence": "服务器接受了Transfer-Encoding头",
+      "remediation": "禁用Transfer-Encoding，使用HTTP/2",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 130
+    },
+    {
+      "type": "未授权访问",
+      "severity": "Critical",
+      "url": "https://i1.huanqiu-ltd.com/admin/export",
+      "description": "发现未授权访问敏感数据: /admin/export",
+      "evidence": "返回包含敏感信息",
+      "remediation": "添加认证和授权",
+      "verified": true,
+      "verify_method": "确认可未授权访问",
+      "exploitable": true,
+      "exploit_confidence": "high",
+      "exploit_evidence": "成功访问敏感数据",
+      "priority_score": 170
+    },
+    {
+      "type": "配置错误",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "CORS 配置允许所有域名",
+      "evidence": "Access-Control-Allow-Origin: *",
+      "remediation": "限制 CORS 允许的域名",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 115
+    },
+    {
+      "type": "逻辑漏洞",
+      "severity": "High",
+      "url": "https://i1.huanqiu-ltd.com/forgot-password",
+      "description": "密码重置接口缺少验证码",
+      "evidence": "未发现验证码",
+      "remediation": "添加验证码验证",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 130
+    },
+    {
+      "type": "逻辑漏洞",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com/forgot-password/",
+      "description": "密码重置接口缺少频率限制",
+      "evidence": "未发现频率限制",
+      "remediation": "添加频率限制",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 110
+    },
+    {
+      "type": "逻辑漏洞",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com/login",
+      "description": "登录接口缺少账户锁定",
+      "evidence": "未发现账户锁定",
+      "remediation": "添加账户锁定机制",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 110
+    },
+    {
+      "type": "输出编码漏洞",
+      "severity": "Low",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "缺少 X-Content-Type-Options 头",
+      "evidence": "未设置 X-Content-Type-Options",
+      "remediation": "添加 X-Content-Type-Options: nosniff",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 90
+    },
+    {
+      "type": "加密漏洞",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "缺少HSTS头",
+      "evidence": "未设置 Strict-Transport-Security",
+      "remediation": "添加HSTS头",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 110
+    },
+    {
+      "type": "架构漏洞",
+      "severity": "Low",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "服务器信息泄露",
+      "evidence": "Server: Apache",
+      "remediation": "隐藏服务器信息",
+      "verified": true,
+      "verify_method": "默认通过",
+      "exploitable": "unknown",
+      "exploit_confidence": "low",
+      "priority_score": 90
+    },
+    {
+      "type": "配置错误",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "检测到配置错误 (置信度: 80.00%)",
+      "evidence": "特征分数: 0.80",
+      "remediation": "修正配置，添加安全响应头",
+      "exploitable": "unknown",
+      "confidence": 0.8,
+      "exploit_confidence": "low",
+      "priority_score": 115
+    },
+    {
+      "type": "安全头缺失",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "检测到安全头缺失 (置信度: 80.00%)",
+      "evidence": "特征分数: 0.80",
+      "remediation": "添加安全响应头",
+      "exploitable": "unknown",
+      "confidence": 0.8,
+      "exploit_confidence": "low",
+      "priority_score": 110
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# 日志文件
+*.log
+scan.log
+
+# 临时文件
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 敏感配置（如果有API密钥）
+# config.local.py
+
+# 扫描结果（可选，如果不想上传）
+# reports/
+
+# 模型文件（如果太大）
+# models/*.pkl
+# models/*.h5
+
+# 学习数据
+learning_data/

@@ -1,0 +1,491 @@
+{
+  "target": "www.dianping.com",
+  "scan_time": "2026-05-31T10:18:25.398533",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 46,
+    "severity_distribution": {
+      "Critical": 0,
+      "High": 40,
+      "Medium": 4,
+      "Low": 2,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "www.dianping.com"
+  ],
+  "alive_targets": [
+    {
+      "url": "https://www.dianping.com",
+      "target": "www.dianping.com"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "Clickjacking",
+      "severity": "Medium",
+      "url": "https://www.dianping.com",
+      "description": "页面缺少 Clickjacking 防护",
+      "evidence": "未设置 X-Frame-Options 或 CSP frame-ancestors",
+      "remediation": "添加 X-Frame-Options: DENY 或 CSP frame-ancestors 指令",
+      "verified": true,
+      "verify_method": "确认缺少X-Frame-Options和CSP frame-ancestors"
+    },
+    {
+      "type": "PUT方法启用",
+      "severity": "Medium",
+      "url": "https://www.dianping.com",
+      "description": "服务器可能启用PUT方法",
+      "evidence": "PUT返回200",
+      "remediation": "限制HTTP方法",
+      "poc": "",
+      "cve": "",
+      "verified": true,
+      "verify_method": "确认PUT方法可用，返回状态码: 200"
+    },
+    {
+      "type": "安全头缺失",
+      "severity": "Low",
+      "url": "https://www.dianping.com",
+      "description": "缺少安全响应头: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, Referrer-Policy",
+      "evidence": "缺失: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, Referrer-Policy",
+      "remediation": "添加安全响应头",
+      "poc": "",
+      "cve": "",
+      "verified": true,
+      "verify_method": "确认缺少安全头: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, Referrer-Policy"
+    },
+    {
+      "type": "逻辑漏洞",
+      "severity": "Medium",
+      "url": "https://www.dianping.com/forgot-password",
+      "description": "发现密码重置接口，可能存在逻辑漏洞",
+      "evidence": "响应长度: 17707",
+      "remediation": "实施验证码、频率限制、token验证",
+      "verified": true,
+      "verify_method": "默认通过"
+    },
+    {
+      "type": "逻辑漏洞",
+      "severity": "Medium",
+      "url": "https://www.dianping.com/reset-password",
+      "description": "发现密码重置接口，可能存在逻辑漏洞",
+      "evidence": "响应长度: 17707",
+      "remediation": "实施验证码、频率限制、token验证",
+      "verified": true,
+      "verify_method": "默认通过"
+    },
+    {
+      "type": "HTTP请求走私",
+      "severity": "High",
+      "url": "https://www.dianping.com",
+      "description": "可能存在HTTP请求走私漏洞",
+      "evidence": "服务器接受了Transfer-Encoding头",
+      "remediation": "禁用Transfer-Encoding，使用HTTP/2",
+      "verified": true,
+      "verify_method": "默认通过"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/error",
+      "description": "发现密码信息泄露: /error",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/error/",
+      "description": "发现密码信息泄露: /error/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/error.html",
+      "description": "发现密码信息泄露: /error.html",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/404",
+      "description": "发现密码信息泄露: /404",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/404.html",
+      "description": "发现密码信息泄露: /404.html",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/500",
+      "description": "发现密码信息泄露: /500",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/500.html",
+      "description": "发现密码信息泄露: /500.html",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/exception",
+      "description": "发现密码信息泄露: /exception",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/exception/",
+      "description": "发现密码信息泄露: /exception/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/trace",
+      "description": "发现密码信息泄露: /trace",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/trace/",
+      "description": "发现密码信息泄露: /trace/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/server-status",
+      "description": "发现密码信息泄露: /server-status",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/server-info",
+      "description": "发现密码信息泄露: /server-info",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/favicon.ico",
+      "description": "发现密码信息泄露: /favicon.ico",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/sitemap.xml",
+      "description": "发现密码信息泄露: /sitemap.xml",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/version",
+      "description": "发现密码信息泄露: /version",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/version/",
+      "description": "发现密码信息泄露: /version/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/version.json",
+      "description": "发现密码信息泄露: /version.json",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/build",
+      "description": "发现密码信息泄露: /build",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/build/",
+      "description": "发现密码信息泄露: /build/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/build.json",
+      "description": "发现密码信息泄露: /build.json",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/release",
+      "description": "发现密码信息泄露: /release",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/release/",
+      "description": "发现密码信息泄露: /release/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/release.json",
+      "description": "发现密码信息泄露: /release.json",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/CHANGELOG.md",
+      "description": "发现密码信息泄露: /CHANGELOG.md",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/RELEASE_NOTES.md",
+      "description": "发现密码信息泄露: /RELEASE_NOTES.md",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/config",
+      "description": "发现密码信息泄露: /config",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/config/",
+      "description": "发现密码信息泄露: /config/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/config.json",
+      "description": "发现密码信息泄露: /config.json",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/settings",
+      "description": "发现密码信息泄露: /settings",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/settings/",
+      "description": "发现密码信息泄露: /settings/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/settings.json",
+      "description": "发现密码信息泄露: /settings.json",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/env",
+      "description": "发现密码信息泄露: /env",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/env/",
+      "description": "发现密码信息泄露: /env/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/environment",
+      "description": "发现密码信息泄露: /environment",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/environment/",
+      "description": "发现密码信息泄露: /environment/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/debug",
+      "description": "发现密码信息泄露: /debug",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/debug/",
+      "description": "发现密码信息泄露: /debug/",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "High",
+      "url": "https://www.dianping.com/phpinfo.html",
+      "description": "发现密码信息泄露: /phpinfo.html",
+      "evidence": "包含 password",
+      "remediation": "移除敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "配置错误",
+      "severity": "Low",
+      "url": "https://www.dianping.com",
+      "description": "缺少安全头: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Content-Security-Policy, Strict-Transport-Security",
+      "evidence": "缺少: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Content-Security-Policy, Strict-Transport-Security",
+      "remediation": "添加安全响应头",
+      "verified": true,
+      "verify_method": "默认通过"
+    }
+  ]
+}

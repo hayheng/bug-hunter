@@ -1,0 +1,43 @@
+{
+  "target": "lixiang.com",
+  "scan_time": "2026-05-30T17:06:48.772354",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 1,
+    "severity_distribution": {
+      "Critical": 0,
+      "High": 0,
+      "Medium": 1,
+      "Low": 0,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "lixiang.com"
+  ],
+  "alive_targets": [
+    {
+      "target": "lixiang.com",
+      "url": "https://lixiang.com",
+      "status_code": 200,
+      "server": "nginx",
+      "content_type": "text/html; charset=utf-8",
+      "title": "理想汽车丨理想，给车和家赋予生命。",
+      "redirect_url": "https://www.lixiang.com/",
+      "technologies": [
+        "Nginx"
+      ]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "Clickjacking",
+      "severity": "Medium",
+      "url": "https://lixiang.com",
+      "description": "页面缺少 Clickjacking 防护",
+      "evidence": "未设置 X-Frame-Options 或 CSP frame-ancestors",
+      "remediation": "添加 X-Frame-Options: DENY 或 CSP frame-ancestors 指令"
+    }
+  ]
+}

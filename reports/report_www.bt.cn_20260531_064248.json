@@ -1,0 +1,67 @@
+{
+  "target": "www.bt.cn",
+  "scan_time": "2026-05-31T06:42:48.875999",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 4,
+    "severity_distribution": {
+      "Critical": 0,
+      "High": 1,
+      "Medium": 3,
+      "Low": 0,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "www.bt.cn"
+  ],
+  "alive_targets": [
+    {
+      "url": "https://www.bt.cn",
+      "target": "www.bt.cn"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "敏感文件泄露",
+      "severity": "Medium",
+      "url": "https://www.bt.cn/database.sql",
+      "description": "发现敏感路径: database.sql",
+      "evidence": "状态码: 403",
+      "remediation": "删除或限制访问敏感文件",
+      "verified": true,
+      "verify_method": "无法验证，默认通过: HTTPSConnectionPool(host='www.bt.cn', port=443): Max retries exceeded with url: /database.sql (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"
+    },
+    {
+      "type": "敏感文件泄露",
+      "severity": "Medium",
+      "url": "https://www.bt.cn/admin",
+      "description": "发现敏感路径: admin",
+      "evidence": "状态码: 200",
+      "remediation": "删除或限制访问敏感文件",
+      "verified": true,
+      "verify_method": "无法验证，默认通过: HTTPSConnectionPool(host='www.bt.cn', port=443): Max retries exceeded with url: /admin (Caused by ProxyError('Unable to connect to proxy', RemoteDisconnected('Remote end closed connection without response')))"
+    },
+    {
+      "type": "信息泄露",
+      "severity": "Medium",
+      "url": "https://www.bt.cn",
+      "description": "页面中发现敏感关键词: ftp",
+      "evidence": "ä¸é®éç½®ï¼lamp/lnmpãç½ç«ãæ°æ®åºãftpãsslï¼éè¿webç«¯è½»æ¾ç®¡çæå¡å¨ã\"><me",
+      "remediation": "移除页面中的敏感信息",
+      "verified": true,
+      "verify_method": "确认存在信息泄露"
+    },
+    {
+      "type": "HTTP请求走私",
+      "severity": "High",
+      "url": "https://www.bt.cn",
+      "description": "可能存在HTTP请求走私漏洞",
+      "evidence": "服务器接受了Transfer-Encoding头",
+      "remediation": "禁用Transfer-Encoding，使用HTTP/2",
+      "verified": true,
+      "verify_method": "默认通过"
+    }
+  ]
+}

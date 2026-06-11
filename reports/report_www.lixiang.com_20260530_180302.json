@@ -1,0 +1,103 @@
+{
+  "target": "www.lixiang.com",
+  "scan_time": "2026-05-30T18:03:02.203502",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 7,
+    "severity_distribution": {
+      "Critical": 0,
+      "High": 0,
+      "Medium": 4,
+      "Low": 3,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "www.lixiang.com"
+  ],
+  "alive_targets": [
+    {
+      "url": "https://www.lixiang.com",
+      "target": "www.lixiang.com"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "敏感文件泄露",
+      "severity": "Medium",
+      "url": "https://www.lixiang.com/sitemap.xml",
+      "description": "发现敏感文件: /sitemap.xml",
+      "evidence": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\"",
+      "remediation": "删除或限制访问敏感文件"
+    },
+    {
+      "type": "Clickjacking",
+      "severity": "Medium",
+      "url": "https://www.lixiang.com",
+      "description": "页面缺少 Clickjacking 防护",
+      "evidence": "未设置 X-Frame-Options 或 CSP frame-ancestors",
+      "remediation": "添加 X-Frame-Options: DENY 或 CSP frame-ancestors 指令"
+    },
+    {
+      "type": "PUT方法启用",
+      "severity": "Medium",
+      "url": "https://www.lixiang.com",
+      "description": "服务器可能启用PUT方法",
+      "evidence": "PUT返回403",
+      "remediation": "限制HTTP方法",
+      "poc": "",
+      "cve": ""
+    },
+    {
+      "type": "安全头缺失",
+      "severity": "Low",
+      "url": "https://www.lixiang.com",
+      "description": "缺少安全响应头: X-Frame-Options, Content-Security-Policy, Referrer-Policy",
+      "evidence": "缺失: X-Frame-Options, Content-Security-Policy, Referrer-Policy",
+      "remediation": "添加安全响应头",
+      "poc": "",
+      "cve": ""
+    },
+    {
+      "type": "信息泄露",
+      "severity": "Medium",
+      "url": "https://www.lixiang.com",
+      "description": "页面泄露邮箱地址: 4个",
+      "evidence": "press@lixiang.com, press@lixiang.com, press@lixiang.com, press@lixiang.com",
+      "remediation": "移除页面中的邮箱地址",
+      "poc": "",
+      "cve": ""
+    },
+    {
+      "type": "Nuclei-weak-cipher-suites",
+      "severity": "Low",
+      "url": "www.lixiang.com",
+      "description": "[weak-cipher-suites] Weak Cipher Suites Detection",
+      "evidence": "A weak cipher is defined as an encryption/decryption algorithm that uses a key of insufficient length. Using an insufficient length for a key in an encryption/decryption algorithm opens up the possibility (or probability) that the encryption scheme could be broken.",
+      "remediation": "升级加密算法",
+      "poc": "",
+      "cve": "",
+      "reference": [
+        "https://www.acunetix.com/vulnerabilities/web/tls-ssl-weak-cipher-suites/",
+        "http://ciphersuite.info"
+      ],
+      "matcher": "tls-1.0"
+    },
+    {
+      "type": "Nuclei-weak-cipher-suites",
+      "severity": "Low",
+      "url": "www.lixiang.com",
+      "description": "[weak-cipher-suites] Weak Cipher Suites Detection",
+      "evidence": "A weak cipher is defined as an encryption/decryption algorithm that uses a key of insufficient length. Using an insufficient length for a key in an encryption/decryption algorithm opens up the possibility (or probability) that the encryption scheme could be broken.",
+      "remediation": "升级加密算法",
+      "poc": "",
+      "cve": "",
+      "reference": [
+        "https://www.acunetix.com/vulnerabilities/web/tls-ssl-weak-cipher-suites/",
+        "http://ciphersuite.info"
+      ],
+      "matcher": "tls-1.1"
+    }
+  ]
+}

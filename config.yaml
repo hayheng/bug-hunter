@@ -1,0 +1,109 @@
+# 自动化漏洞挖掘系统配置文件
+
+# 扫描配置
+scan:
+  # 线程数
+  threads: 50
+  # 请求超时(秒)
+  timeout: 10
+  # 请求间隔(秒)
+  delay: 0.1
+  # 重试次数
+  retries: 3
+  # User-Agent
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+# 子域名枚举配置
+subdomain:
+  # 使用在线API枚举
+  use_api: true
+  # 使用暴力枚举
+  use_brute: true
+  # 暴力枚举线程数
+  brute_threads: 50
+
+# 目录扫描配置
+dir_scan:
+  # 启用目录扫描
+  enabled: true
+  # 扫描线程数
+  threads: 20
+  # 过滤正常文件
+  filter_normal: true
+
+# 漏洞扫描配置
+vuln_scan:
+  # 基础漏洞扫描
+  basic: true
+  # 高级漏洞扫描
+  advanced: true
+  # 中高危漏洞扫描
+  critical: true
+
+# Nuclei配置
+nuclei:
+  # 启用Nuclei
+  enabled: true
+  # 模板路径
+  templates_path: "D:/bug-hunter/templates/nuclei-templates"
+  # 严重程度筛选
+  severity: "low,medium,high,critical"
+  # 扫描超时(秒)
+  timeout: 300
+
+# 漏洞验证配置
+verify:
+  # 启用漏洞验证
+  enabled: true
+  # 验证超时(秒)
+  timeout: 5
+
+# 报告配置
+report:
+  # 报告格式 (markdown/json/html)
+  format: "markdown"
+  # 报告输出目录
+  output_dir: "D:/bug-hunter/reports"
+  # 包含PoC
+  include_poc: true
+  # 包含修复方案
+  include_remediation: true
+
+# 代理配置
+proxy:
+  # 启用代理
+  enabled: false
+  # HTTP代理
+  http: ""
+  # HTTPS代理
+  https: ""
+  # SOCKS5代理
+  socks5: ""
+
+# 限速配置
+rate_limit:
+  # 启用限速
+  enabled: false
+  # 每秒请求数
+  requests_per_second: 10
+  # 每分钟请求数
+  requests_per_minute: 100
+
+# 日志配置
+logging:
+  # 日志级别 (DEBUG/INFO/WARNING/ERROR)
+  level: "INFO"
+  # 日志文件
+  file: "D:/bug-hunter/scan.log"
+  # 控制台输出
+  console: true
+  # 日志格式
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+
+# 单位名称映射
+org_map:
+  # 格式: 域名: 单位名称
+  lixiang.com: "理想汽车"
+  fenqile.com: "分期乐"
+  sto.cn: "申通快递"
+  bt.cn: "宝塔"

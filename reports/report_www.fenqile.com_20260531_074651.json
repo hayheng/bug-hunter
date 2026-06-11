@@ -1,0 +1,69 @@
+{
+  "target": "www.fenqile.com",
+  "scan_time": "2026-05-31T07:46:51.210106",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 4,
+    "severity_distribution": {
+      "Critical": 0,
+      "High": 1,
+      "Medium": 1,
+      "Low": 2,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "www.fenqile.com"
+  ],
+  "alive_targets": [
+    {
+      "url": "https://www.fenqile.com",
+      "target": "www.fenqile.com"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "Clickjacking",
+      "severity": "Medium",
+      "url": "https://www.fenqile.com",
+      "description": "页面缺少 Clickjacking 防护",
+      "evidence": "未设置 X-Frame-Options 或 CSP frame-ancestors",
+      "remediation": "添加 X-Frame-Options: DENY 或 CSP frame-ancestors 指令",
+      "verified": true,
+      "verify_method": "确认缺少X-Frame-Options和CSP frame-ancestors"
+    },
+    {
+      "type": "安全头缺失",
+      "severity": "Low",
+      "url": "https://www.fenqile.com",
+      "description": "缺少安全响应头: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, Referrer-Policy",
+      "evidence": "缺失: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, Referrer-Policy",
+      "remediation": "添加安全响应头",
+      "poc": "",
+      "cve": "",
+      "verified": true,
+      "verify_method": "确认缺少安全头: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, Referrer-Policy"
+    },
+    {
+      "type": "HTTP请求走私",
+      "severity": "High",
+      "url": "https://www.fenqile.com",
+      "description": "可能存在HTTP请求走私漏洞",
+      "evidence": "服务器接受了Transfer-Encoding头",
+      "remediation": "禁用Transfer-Encoding，使用HTTP/2",
+      "verified": true,
+      "verify_method": "默认通过"
+    },
+    {
+      "type": "配置错误",
+      "severity": "Low",
+      "url": "https://www.fenqile.com",
+      "description": "缺少安全头: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Content-Security-Policy, Strict-Transport-Security",
+      "evidence": "缺少: X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Content-Security-Policy, Strict-Transport-Security",
+      "remediation": "添加安全响应头",
+      "verified": true,
+      "verify_method": "默认通过"
+    }
+  ]
+}

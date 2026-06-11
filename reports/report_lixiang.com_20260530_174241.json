@@ -1,0 +1,95 @@
+{
+  "target": "lixiang.com",
+  "scan_time": "2026-05-30T17:42:41.883192",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 6,
+    "severity_distribution": {
+      "Critical": 0,
+      "High": 0,
+      "Medium": 3,
+      "Low": 3,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "lixiang.com"
+  ],
+  "alive_targets": [
+    {
+      "url": "https://lixiang.com",
+      "target": "lixiang.com"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "Clickjacking",
+      "severity": "Medium",
+      "url": "https://lixiang.com",
+      "description": "页面缺少 Clickjacking 防护",
+      "evidence": "未设置 X-Frame-Options 或 CSP frame-ancestors",
+      "remediation": "添加 X-Frame-Options: DENY 或 CSP frame-ancestors 指令"
+    },
+    {
+      "type": "PUT方法启用",
+      "severity": "Medium",
+      "url": "https://lixiang.com",
+      "description": "服务器可能启用PUT方法",
+      "evidence": "PUT返回200",
+      "remediation": "限制HTTP方法",
+      "poc": "",
+      "cve": ""
+    },
+    {
+      "type": "安全头缺失",
+      "severity": "Low",
+      "url": "https://lixiang.com",
+      "description": "缺少安全响应头: X-Frame-Options, Content-Security-Policy, Referrer-Policy",
+      "evidence": "缺失: X-Frame-Options, Content-Security-Policy, Referrer-Policy",
+      "remediation": "添加安全响应头",
+      "poc": "",
+      "cve": ""
+    },
+    {
+      "type": "信息泄露",
+      "severity": "Medium",
+      "url": "https://lixiang.com",
+      "description": "页面泄露邮箱地址: 4个",
+      "evidence": "press@lixiang.com, press@lixiang.com, press@lixiang.com, press@lixiang.com",
+      "remediation": "移除页面中的邮箱地址",
+      "poc": "",
+      "cve": ""
+    },
+    {
+      "type": "Nuclei-weak-cipher-suites",
+      "severity": "Low",
+      "url": "lixiang.com",
+      "description": "[weak-cipher-suites] Weak Cipher Suites Detection",
+      "evidence": "A weak cipher is defined as an encryption/decryption algorithm that uses a key of insufficient length. Using an insufficient length for a key in an encryption/decryption algorithm opens up the possibility (or probability) that the encryption scheme could be broken.",
+      "remediation": "升级加密算法",
+      "poc": "",
+      "cve": "",
+      "reference": [
+        "https://www.acunetix.com/vulnerabilities/web/tls-ssl-weak-cipher-suites/",
+        "http://ciphersuite.info"
+      ],
+      "matcher": "tls-1.0"
+    },
+    {
+      "type": "Nuclei-weak-cipher-suites",
+      "severity": "Low",
+      "url": "lixiang.com",
+      "description": "[weak-cipher-suites] Weak Cipher Suites Detection",
+      "evidence": "A weak cipher is defined as an encryption/decryption algorithm that uses a key of insufficient length. Using an insufficient length for a key in an encryption/decryption algorithm opens up the possibility (or probability) that the encryption scheme could be broken.",
+      "remediation": "升级加密算法",
+      "poc": "",
+      "cve": "",
+      "reference": [
+        "https://www.acunetix.com/vulnerabilities/web/tls-ssl-weak-cipher-suites/",
+        "http://ciphersuite.info"
+      ],
+      "matcher": "tls-1.1"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "target": "www.dianping.com",
+    "status": "success",
+    "output": null,
+    "errors": "",
+    "returncode": 0,
+    "timestamp": "2026-05-31T23:30:58.344093"
+  },
+  {
+    "target": "www.fenqile.com",
+    "status": "success",
+    "output": null,
+    "errors": "",
+    "returncode": 0,
+    "timestamp": "2026-05-31T23:30:58.357897"
+  },
+  {
+    "target": "www.sto.cn",
+    "status": "success",
+    "output": null,
+    "errors": "",
+    "returncode": 0,
+    "timestamp": "2026-05-31T23:30:58.539929"
+  }
+]

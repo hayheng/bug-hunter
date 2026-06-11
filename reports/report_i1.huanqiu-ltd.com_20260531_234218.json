@@ -1,0 +1,59 @@
+{
+  "target": "i1.huanqiu-ltd.com",
+  "scan_time": "2026-05-31T23:42:18.194911",
+  "statistics": {
+    "subdomains_count": 1,
+    "alive_targets_count": 1,
+    "vulnerabilities_count": 4,
+    "severity_distribution": {
+      "Critical": 1,
+      "High": 1,
+      "Medium": 2,
+      "Low": 0,
+      "Info": 0
+    }
+  },
+  "subdomains": [
+    "i1.huanqiu-ltd.com"
+  ],
+  "alive_targets": [
+    {
+      "url": "https://i1.huanqiu-ltd.com",
+      "target": "i1.huanqiu-ltd.com"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "Clickjacking",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "Clickjacking漏洞",
+      "evidence": "未设置X-Frame-Options",
+      "priority_score": 110
+    },
+    {
+      "type": "CORS配置错误",
+      "severity": "Critical",
+      "url": "https://i1.huanqiu-ltd.com",
+      "description": "CORS配置错误",
+      "evidence": "ACAO: *",
+      "priority_score": 155
+    },
+    {
+      "type": "未授权访问",
+      "severity": "High",
+      "url": "https://i1.huanqiu-ltd.com/admin",
+      "description": "管理后台未授权访问",
+      "evidence": "返回200",
+      "priority_score": 150
+    },
+    {
+      "type": "信息泄露",
+      "severity": "Medium",
+      "url": "https://i1.huanqiu-ltd.com/.env",
+      "description": "环境文件泄露",
+      "evidence": "DB_PASSWORD=xxx",
+      "priority_score": 130
+    }
+  ]
+}
