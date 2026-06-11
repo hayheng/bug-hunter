@@ -39,3 +39,5 @@ Thumbs.db
 
 # 学习数据
 learning_data/
+# 扫描报告（不上传）
+reports/
