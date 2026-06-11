@@ -139,6 +139,165 @@ A: 在 `config.py` 中的相应列表添加。
 - **ffuf** - 目录爆破
 - **sqlmap** - SQL注入测试
 
+## 🚀 部署建议
+
+### 环境要求
+
+| 项目 | 要求 |
+|------|------|
+| Python | 3.8+ |
+| 操作系统 | Windows / Linux / macOS |
+| 内存 | 建议 4GB+ |
+| 网络 | 需要稳定的网络连接 |
+
+### 快速部署
+
+#### Windows
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/hayheng/bug-hunter.git
+cd bug-hunter
+
+# 2. 安装依赖
+pip install requests urllib3 pyyaml
+
+# 3. 运行扫描
+python main.py example.com
+```
+
+#### Linux / macOS
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/hayheng/bug-hunter.git
+cd bug-hunter
+
+# 2. 创建虚拟环境（推荐）
+python3 -m venv venv
+source venv/bin/activate
+
+# 3. 安装依赖
+pip install requests urllib3 pyyaml
+
+# 4. 运行扫描
+python main.py example.com
+```
+
+### 使用 Docker（推荐）
+
+```dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install --no-cache-dir requests urllib3 pyyaml
+
+CMD ["python", "main.py", "--help"]
+```
+
+```bash
+# 构建镜像
+docker build -t bug-hunter .
+
+# 运行扫描
+docker run -v $(pwd)/reports:/app/reports bug-hunter python main.py example.com
+```
+
+### 高级部署
+
+#### 1. 定时扫描（Cron）
+
+```bash
+# 每天凌晨3点执行扫描
+0 3 * * * cd /path/to/bug-hunter && python main.py -l targets.txt >> /var/log/bug-hunter.log 2>&1
+```
+
+#### 2. 后台运行（Linux）
+
+```bash
+# 使用 screen
+screen -S bug-hunter
+python main.py -l targets.txt
+# Ctrl+A+D 分离会话
+
+# 使用 nohup
+nohup python main.py -l targets.txt > scan.log 2>&1 &
+```
+
+#### 3. Windows 计划任务
+
+```powershell
+# 使用任务计划程序
+schtasks /create /tn "BugHunter" /tr "python D:\bug-hunter\main.py -l D:\bug-hunter\targets.txt" /sc daily /st 03:00
+```
+
+### 配置优化
+
+编辑 `config.yaml` 调整扫描参数：
+
+```yaml
+scan:
+  threads: 50        # 线程数（根据网络调整）
+  timeout: 10        # 超时时间
+  delay: 0.1         # 请求间隔（避免被封）
+```
+
+### 代理配置
+
+如果需要使用代理：
+
+```yaml
+proxy:
+  enabled: true
+  http: "http://127.0.0.1:7890"
+  https: "http://127.0.0.1:7890"
+```
+
+### 注意事项
+
+⚠️ **法律提醒**：
+1. 只扫描你有权限的目标
+2. 遵守各平台的赏金规则
+3. 不要进行破坏性测试
+4. 发现漏洞及时报告
+
+⚠️ **性能建议**：
+1. 线程数不要超过 100，避免被封 IP
+2. 批量扫描时增加请求间隔
+3. 使用代理可以避免 IP 被封
+
+⚠️ **安全建议**：
+1. 不要将扫描结果公开上传
+2. 定期更新 Nuclei 模板
+3. 使用虚拟环境隔离依赖
+
+## 📦 依赖说明
+
+核心依赖：
+- `requests` — HTTP 请求
+- `urllib3` — HTTP 客户端
+- `pyyaml` — 配置文件解析
+
+可选依赖：
+- `nuclei` — 模板化漏洞扫描（需要单独安装）
+
+## 🔧 常见部署问题
+
+### Q: 提示找不到模块？
+A: 确保在项目目录下运行，且依赖已安装。
+
+### Q: 扫描速度太慢？
+A: 调整 `config.yaml` 中的 `threads` 和 `delay`。
+
+### Q: 被目标网站封禁？
+A: 降低线程数，增加延迟，或使用代理。
+
+### Q: Nuclei 扫描不工作？
+A: 需要单独安装 Nuclei，参考 https://github.com/projectdiscovery/nuclei
+
 ## 免责声明
 
 本工具仅供安全研究和授权测试使用。使用者需自行承担使用风险，开发者不对任何滥用行为负责。
